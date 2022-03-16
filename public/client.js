@@ -32,6 +32,15 @@ window.addEventListener('load', function() {
 	  
 	});//END_SOCKET.ON
 	
+	    socket.on('ON_UPDATE_SOUND', function(id,name) {
+	     var currentUserAtr = id+':'+name;
+		 	
+		 if(window.unityInstance!=null)
+		{
+		   window.unityInstance.SendMessage ('NetworkManager', 'OnUpdateSound',currentUserAtr);
+		}
+		
+	});//END_SOCKET.ON
 		
 	socket.on('SPAWN_PLAYER', function(id,name,position,avatar) {
 	
