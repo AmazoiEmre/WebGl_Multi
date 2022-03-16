@@ -159,6 +159,20 @@ io.on('connection', function(socket){
        }
 	});//END_SOCKET_ON
 	
+		socket.on('SOUND', function (_data)
+	{
+	  var data = JSON.parse(_data);	
+	  
+	  if(currentUser)
+	  {
+		  
+	   // send current user position and  rotation in broadcast to all clients in game
+       socket.broadcast.emit('ON_UPDATE_SOUND', currentUser.id,currentUser.name);
+	   
+       }
+	});//END_SOCKET_ON
+	
+	
 	
 	
 
