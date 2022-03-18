@@ -65,7 +65,15 @@ window.addEventListener('load', function() {
 		
 	});//END_SOCKET.ON
 	
-	
+		 socket.on('UPDATE_CLOSECHATBOX', function(host_id,guest_id) {
+	     var currentUserAtr = host_id+':'+guest_id;
+		 	
+		 if(window.unityInstance!=null)
+		{
+		   window.unityInstance.SendMessage ('NetworkManager', 'OnReceiveCloseChatbox',currentUserAtr);
+		}
+		
+	});//END_SOCKET.ON
 	
 
 	
