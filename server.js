@@ -122,8 +122,8 @@ io.on('connection', function(socket){
 	    sockets[data.guest_id].emit('UPDATE_CLOSECHATBOX',data.chat_box_id, currentUser.id);
 	
       }
-	  
-	  
+	});//END_SOCKET_ON
+	
 		socket.on('SOUND', function (_data)
 	{
 	  var data = JSON.parse(_data);	
