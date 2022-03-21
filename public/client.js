@@ -77,6 +77,18 @@ window.addEventListener('load', function() {
 	
 
 	
+		 socket.on('UPDATE_CLOSECHATBOX', function(guest_id) {
+	     var currentUserAtr = guest_id;
+		 	
+		 if(window.unityInstance!=null)
+		{
+		   window.unityInstance.SendMessage ('NetworkManager', 'OnReceiveCloseChatbox',currentUserAtr);
+		}
+		
+	});//END_SOCKET.ON
+	
+
+	
     socket.on('UPDATE_MESSAGE', function(_chat_box_id,host_id,message) {
 	     var currentUserAtr = _chat_box_id+":"+host_id+':'+message;
 		 	
