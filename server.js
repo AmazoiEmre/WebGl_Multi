@@ -122,7 +122,29 @@ io.on('connection', function(socket){
 	    sockets[data.guest_id].emit('UPDATE_CLOSECHATBOX',data.chat_box_id, currentUser.id);
 	
       }
+	  
+	  
 	});//END_SOCKET_ON
+	
+	
+		socket.on('CLOSE_USER_UI', function (_data)
+	{
+		
+		
+	  var data = JSON.parse(_data);	
+	  
+	  
+	  if(currentUser)
+	  {
+	
+	    // send current user position and  rotation in broadcast to all clients in game
+        socket.emit('UPDATE_CLOSE_USER_UI', currentUser.id);
+	 
+	    sockets[data.guest_id].emit('UPDATE_CLOSE_USER_UI', currentUser.id);
+	
+      }
+	});//END_SOCKET_ON
+	
 	
 		socket.on('SOUND', function (_data)
 	{
