@@ -77,12 +77,12 @@ window.addEventListener('load', function() {
 	
 
 	
-		 socket.on('UPDATE_CLOSECHATBOX', function(guest_id) {
+		 socket.on('UPDATE_CLOSE_USER_UI', function(guest_id) {
 	     var currentUserAtr = guest_id;
 		 	
 		 if(window.unityInstance!=null)
 		{
-		   window.unityInstance.SendMessage ('NetworkManager', 'OnReceiveCloseChatbox',currentUserAtr);
+		   window.unityInstance.SendMessage ('CanvasManager', 'DestroyUser',currentUserAtr);
 		}
 		
 	});//END_SOCKET.ON
