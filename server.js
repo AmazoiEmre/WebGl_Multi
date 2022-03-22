@@ -125,18 +125,7 @@ io.on('connection', function(socket){
 	  
 	  
 	});//END_SOCKET_ON
-		 socket.on('UPDATE_PLAYER_ANIMATOR', function(id,animation) {
-	 
-	     var currentUserAtr = id+':'+animation;
-		
-		 if(window.unityInstance!=null)
-		{
-		  
-		   // sends the package currentUserAtr to the method OnUpdateAnim in the NetworkManager class on Unity 
-		   window.unityInstance.SendMessage ('NetworkManager', 'OnUpdateAnim',currentUserAtr);
-		}
-		
-	});//END_SOCKET.ON
+
 	
 				
 	
