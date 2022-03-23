@@ -126,6 +126,22 @@ io.on('connection', function(socket){
 	  
 	});//END_SOCKET_ON
 		
+	socket.on('ANIMATION', function (_data)
+	{
+	  var data = JSON.parse(_data);	
+	  
+	  if(current_player)
+	  {
+	   
+	   
+	    //send to the client.js script
+	   //updates the animation of the player for the other game clients
+       socket.broadcast.emit('UPDATE_PLAYER_ANIMATOR', current_player.id,data.animation);
+	
+	   
+      }//END_IF
+	  
+	});//END_SOCKET_ON
 				
 				
 	
